@@ -1,0 +1,819 @@
+/* =====================================================
+   RACE 95 PWA
+   Resultado de Aprendizaje - Unidad 1
+   ===================================================== */
+
+:root {
+    --race-red: #d71920;
+    --race-red-dark: #a80f15;
+    --race-black: #0d0d0f;
+    --race-dark: #17171a;
+    --race-gray: #f5f5f7;
+    --race-border: #e6e6e8;
+    --race-white: #ffffff;
+    --race-text: #242428;
+    --race-muted: #727278;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--race-gray);
+    color: var(--race-text);
+    overflow-x: hidden;
+}
+
+
+/* =====================================================
+   NAVEGACIÓN
+   ===================================================== */
+
+.navbar {
+    background: rgba(10, 10, 12, 0.96);
+    min-height: 76px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    letter-spacing: 2px;
+}
+
+.brand-95 {
+    background: var(--race-red);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.navbar .nav-link {
+    color: rgba(255,255,255,0.78);
+    margin-left: 18px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.navbar .nav-link:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   HERO / PORTADA
+   ===================================================== */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 80% 50%,
+            rgba(215, 25, 32, 0.20),
+            transparent 35%
+        ),
+        linear-gradient(
+            120deg,
+            #09090b 0%,
+            #151518 55%,
+            #09090b 100%
+        );
+
+    color: white;
+}
+
+.hero::before {
+    content: "95";
+    position: absolute;
+
+    right: -70px;
+    bottom: -160px;
+
+    font-size: clamp(300px, 38vw, 600px);
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: rgba(255,255,255,0.025);
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-label {
+    display: inline-block;
+
+    color: #ff3a40;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: clamp(70px, 10vw, 135px);
+    line-height: 0.85;
+
+    font-weight: 900;
+
+    letter-spacing: -5px;
+
+    margin: 0 0 25px;
+}
+
+.hero h1 span {
+    color: var(--race-red);
+}
+
+.hero h2 {
+    font-size: clamp(25px, 3vw, 40px);
+    font-weight: 300;
+
+    margin-bottom: 20px;
+}
+
+.hero-content > p {
+    max-width: 650px;
+
+    color: #bdbdc4;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.btn-race {
+    background: var(--race-red);
+    border: 2px solid var(--race-red);
+
+    color: white;
+
+    padding: 13px 28px;
+
+    border-radius: 6px;
+
+    font-weight: 700;
+}
+
+.btn-race:hover,
+.btn-race:focus {
+    background: var(--race-red-dark);
+    border-color: var(--race-red-dark);
+    color: white;
+}
+
+.connection-status {
+    display: inline-block;
+
+    margin-top: 35px;
+
+    color: #54e889;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =====================================================
+   EMBLEMA 95
+   ===================================================== */
+
+.race-logo {
+    width: 290px;
+    height: 290px;
+
+    border: 8px solid var(--race-red);
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: rotate(-7deg);
+
+    box-shadow:
+        0 0 0 14px rgba(215,25,32,0.10),
+        0 30px 80px rgba(0,0,0,0.45);
+}
+
+.race-logo strong {
+    font-size: 120px;
+    font-weight: 900;
+
+    line-height: 0.85;
+}
+
+.race-logo small {
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 7px;
+}
+
+
+/* =====================================================
+   SECCIONES
+   ===================================================== */
+
+.section-light,
+.activities-section,
+.pwa-section {
+    padding: 100px 0;
+}
+
+.section-light {
+    background: var(--race-white);
+}
+
+.activities-section {
+    background: #f4f4f6;
+}
+
+.pwa-section {
+    background: white;
+}
+
+.section-header {
+    max-width: 700px;
+    margin: 0 auto 55px;
+}
+
+.section-header > span,
+.section-label {
+    color: var(--race-red);
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+.section-header h2,
+.activities-section h2 {
+    font-size: clamp(34px, 5vw, 52px);
+
+    font-weight: 800;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.section-header p,
+.activities-section p {
+    color: var(--race-muted);
+
+    line-height: 1.7;
+}
+
+
+/* =====================================================
+   ESTADÍSTICAS
+   ===================================================== */
+
+.stat-card {
+    height: 100%;
+
+    background: white;
+
+    border: 1px solid var(--race-border);
+    border-radius: 14px;
+
+    padding: 35px;
+
+    position: relative;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: var(--race-red);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,0.10);
+}
+
+.stat-icon {
+    position: absolute;
+
+    right: 25px;
+    top: 22px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    color: #c7c7cb;
+}
+
+.stat-number {
+    display: block;
+
+    font-size: 58px;
+    line-height: 1;
+
+    font-weight: 900;
+
+    color: var(--race-black);
+
+    margin-bottom: 15px;
+}
+
+.stat-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.stat-card p {
+    margin: 0;
+
+    color: var(--race-muted);
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   ACTIVIDADES
+   ===================================================== */
+
+.number-decoration {
+    margin-top: 20px;
+
+    font-size: clamp(100px, 15vw, 180px);
+
+    line-height: 0.8;
+
+    font-weight: 900;
+
+    color: rgba(215,25,32,0.08);
+}
+
+.task-card {
+    background: white;
+
+    padding: clamp(25px, 5vw, 45px);
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,0.08);
+}
+
+.task-card h3 {
+    font-size: 25px;
+
+    font-weight: 800;
+
+    margin-bottom: 5px;
+}
+
+.task-card > p {
+    color: var(--race-muted);
+}
+
+.task-form {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.task-form .form-control {
+    min-height: 52px;
+
+    border-radius: 6px;
+
+    border: 1px solid #d9d9dc;
+}
+
+.task-form .form-control:focus {
+    border-color: var(--race-red);
+
+    box-shadow:
+        0 0 0 0.2rem rgba(215,25,32,0.10);
+}
+
+.task-list {
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+}
+
+.task-item {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 16px 5px;
+
+    border-bottom:
+        1px solid var(--race-border);
+}
+
+.task-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    min-width: 0;
+}
+
+.task-check {
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    border: 2px solid var(--race-red);
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+.task-text {
+    word-break: break-word;
+}
+
+.task-item.completed .task-check {
+    background: var(--race-red);
+
+    box-shadow:
+        inset 0 0 0 4px white;
+}
+
+.task-item.completed .task-text {
+    color: #99999f;
+
+    text-decoration: line-through;
+}
+
+.delete-task {
+    border: none;
+
+    background: transparent;
+
+    color: #9b9ba1;
+
+    font-size: 18px;
+
+    padding: 5px;
+
+    cursor: pointer;
+}
+
+.delete-task:hover {
+    color: var(--race-red);
+}
+
+.empty-message {
+    padding: 18px;
+
+    text-align: center;
+
+    background: #f7f7f8;
+
+    border-radius: 7px;
+
+    color: #8a8a90;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   CARACTERÍSTICAS PWA
+   ===================================================== */
+
+.feature-card {
+    height: 100%;
+
+    padding: 32px;
+
+    background: var(--race-dark);
+
+    color: white;
+
+    border-radius: 14px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.feature-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    right: -50px;
+    bottom: -50px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(215,25,32,0.15);
+}
+
+.feature-number {
+    color: var(--race-red);
+
+    font-size: 13px;
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    font-size: 22px;
+
+    font-weight: 800;
+
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: #aaaab0;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+
+    margin: 0;
+}
+
+
+/* =====================================================
+   INFORMACIÓN DEL PROYECTO
+   ===================================================== */
+
+.info-section {
+    padding: 70px 0;
+
+    background: var(--race-red);
+
+    color: white;
+}
+
+.info-section span {
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    opacity: 0.8;
+}
+
+.info-section h2 {
+    font-size: clamp(30px, 5vw, 48px);
+
+    font-weight: 800;
+
+    margin: 8px 0 12px;
+}
+
+.info-section p {
+    max-width: 650px;
+
+    margin: 0;
+
+    opacity: 0.85;
+}
+
+.utcj {
+    font-size: clamp(55px, 8vw, 95px);
+
+    line-height: 1;
+
+    font-weight: 900;
+
+    opacity: 0.18;
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+footer {
+    padding: 35px 0;
+
+    background: #08080a;
+
+    color: white;
+}
+
+footer strong {
+    letter-spacing: 2px;
+}
+
+footer p {
+    margin: 5px 0 0;
+
+    color: #77777d;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 991.98px) {
+
+    .navbar .nav-link {
+        margin-left: 0;
+
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .hero {
+        min-height: auto;
+    }
+
+    .hero .min-vh-100 {
+        min-height: 760px !important;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .section-light,
+    .activities-section,
+    .pwa-section {
+        padding: 80px 0;
+    }
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 767.98px) {
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .hero .min-vh-100 {
+        min-height: 700px !important;
+
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+
+    .hero h1 {
+        font-size: 70px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero-content > p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .section-light,
+    .activities-section,
+    .pwa-section {
+        padding: 65px 0;
+    }
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .stat-card {
+        padding: 28px;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-form .btn {
+        min-height: 50px;
+    }
+
+    .number-decoration {
+        display: none;
+    }
+
+    .info-section {
+        padding: 55px 0;
+    }
+
+    .utcj {
+        margin-top: 30px;
+
+        text-align: left;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    footer .text-md-end {
+        margin-top: 15px;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 58px;
+    }
+
+    .hero-label {
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+    .task-card {
+        padding: 22px 18px;
+    }
+}

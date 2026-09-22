@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "Race 95 PWA",
+  "short_name": "Race 95",
+  "description": "Aplicación Web Progresiva para administrar actividades y objetivos.",
+  "lang": "es",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0d0d0f",
+  "theme_color": "#d71920",
+  "icons": [
+    {
+      "src": "./icons/icon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
