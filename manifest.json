@@ -1,5 +1,5 @@
 {
-  "id": "./",
+  "id": "/",
   "name": "Race 95 PWA",
   "short_name": "Race 95",
   "description": "Aplicación Web Progresiva para administrar actividades y objetivos.",
@@ -25,4 +25,4 @@
       "purpose": "any"
     }
   ]
-}
+}   
